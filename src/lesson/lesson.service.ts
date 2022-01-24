@@ -4,6 +4,7 @@ import { Lesson } from './lesson.entity';
 import { Repository } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import { CreateLessonInput } from './lesson.input';
+import { Student } from 'src/student/student.entity';
 @Injectable()
 export class LessonService {
   constructor(
@@ -39,4 +40,6 @@ export class LessonService {
     lesson.students = [...lesson.students, ...studentId];
     return this.lessonRepository.save(lesson);
   }
+
+ 
 }

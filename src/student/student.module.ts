@@ -7,5 +7,6 @@ import { StudentResolver } from './student.revolver';
 @Module({
   imports: [TypeOrmModule.forFeature([Student])],
   providers: [StudentResolver, StudentService],
+  exports: [StudentService],
 })
 export class StudentModule {}
