@@ -2,10 +2,21 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { LessonModule } from './lesson/lesson.module';
 import { LessonResolver } from './lesson/lesson.resolver';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Lesson } from './lesson/lesson.entity';
 @Module({
   imports: [
+    TypeOrmModule.forRoot({
+      type: 'mongodb',
+      url: 'mongodb://localhost/school',
+      synchronize: true,
+      useUnifiedTopology: true,
+      entities: [
+        Lesson
+      ],
+    }),
     GraphQLModule.forRoot({
-      installSubscriptionHandlers:true,
+      installSubscriptionHandlers: true,
       autoSchemaFile: true,
     }),
     LessonModule,
