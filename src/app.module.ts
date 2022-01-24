@@ -5,7 +5,7 @@ import { LessonResolver } from './lesson/lesson.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Lesson } from './lesson/lesson.entity';
 import { StudentModule } from './student/student.module';
-import { Student } from './student/student.type';
+import { Student } from './student/student.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({

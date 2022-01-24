@@ -1,16 +1,12 @@
-import { Column, Entity, PrimaryColumn, ObjectIdColumn } from 'typeorm';
+import { ObjectType,Field } from '@nestjs/graphql';
+@ObjectType('Student')
+export class StudentType{
+    @Field()
+    id:string;
 
-@Entity()
-export class Student {
-  @ObjectIdColumn()
-  _id: string;
+    @Field()
+    firstName:string;
 
-  @PrimaryColumn()
-  id: string;
-
-  @Column()
-  firstName: string;
-
-  @Column()
-  lastName: string;
+    @Field()
+    lastName:string;
 }
